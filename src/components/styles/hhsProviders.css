@@ -1,0 +1,725 @@
+:root {
+  --arkansas-red: #bf0a30;
+  --arkansas-blue: #002868;
+  --arkansas-white: #ffffff;
+  --arkansas-modal-bg: rgba(0, 0, 0, 0.5);
+  --arkansas-light-gray: #f9f9f9;
+  --arkansas-border-color: #ccc;
+}
+
+/* Container */
+.arkansas-providers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Title */
+.arkansas-providers-title {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  color: var(--arkansas-blue);
+}
+
+/* Filter Controls Container */
+.arkansas-providers-filters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Name and Description Filter should span across all columns */
+.arkansas-providers-name-description-filter {
+  grid-column: 1 / -1; /* Spans across all columns */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Select Inputs */
+.arkansas-providers-autocomplete {
+  flex: 1;
+}
+
+/* Clear Filters Button */
+.arkansas-providers-clear-filters {
+  background-color: var(--arkansas-red);
+  color: var(--arkansas-white);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.arkansas-providers-clear-filters:hover {
+  background-color: #a00d25;
+}
+
+/* Providers Card List */
+.arkansas-providers-card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Provider Cards */
+.arkansas-providers-card {
+  background-color: var(--arkansas-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Makes buttons stick to the bottom */
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.arkansas-providers-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.arkansas-providers-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--arkansas-blue);
+}
+
+/* Provider Information Fields */
+.arkansas-providers-id,
+.arkansas-providers-type,
+.arkansas-providers-services,
+.arkansas-providers-address,
+.arkansas-providers-address-line,
+.arkansas-providers-county,
+.arkansas-providers-organization,
+.arkansas-providers-phone,
+.arkansas-providers-email,
+.arkansas-providers-website,
+.arkansas-providers-contact,
+.arkansas-providers-eligibility,
+.arkansas-providers-hours,
+.arkansas-providers-description,
+.arkansas-providers-tags {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Strong Emphasis Fields */
+.arkansas-providers-type strong,
+.arkansas-providers-services strong,
+.arkansas-providers-address strong,
+.arkansas-providers-county strong,
+.arkansas-providers-organization strong,
+.arkansas-providers-phone strong,
+.arkansas-providers-email strong,
+.arkansas-providers-website strong,
+.arkansas-providers-contact strong,
+.arkansas-providers-eligibility strong,
+.arkansas-providers-hours strong,
+.arkansas-providers-description strong,
+.arkansas-providers-tags strong {
+  color: var(--arkansas-red);
+}
+
+.arkansas-providers-website a {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* General Button Styling with Reversed Gradient */
+.arkansas-providers-card-buttons button,
+.arkansas-add-provider-button,
+.arkansas-providers-clear-button,
+.arkansas-show-hide-button {
+  background: linear-gradient(135deg, var(--arkansas-blue), var(--arkansas-red));
+  color: var(--arkansas-white);
+  font-size: 0.95rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px; /* Rounded for consistency with Help button */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+}
+
+/* Hover Effect */
+.arkansas-providers-card-buttons button:hover,
+.arkansas-add-provider-button:hover,
+.arkansas-providers-clear-button:hover,
+.arkansas-show-hide-button:hover {
+  transform: scale(1.05); /* Slight zoom-in */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus Effect */
+.arkansas-providers-card-buttons button:focus,
+.arkansas-add-provider-button:focus,
+.arkansas-providers-clear-button:focus,
+.arkansas-show-hide-button:focus {
+  outline: 2px solid var(--arkansas-white); /* Accessibility outline */
+}
+
+/* Active Press Effect */
+.arkansas-providers-card-buttons button:active,
+.arkansas-add-provider-button:active,
+.arkansas-providers-clear-button:active,
+.arkansas-show-hide-button:active {
+  transform: scale(0.95); /* Pressed-in effect */
+}
+
+
+/* Hover effect for buttons */
+.arkansas-providers-card-buttons button:hover {
+  background-color: #003366;
+  transform: translateY(-2px);
+}
+
+/* Focus effect for buttons */
+.arkansas-providers-card-buttons button:focus {
+  outline: 2px solid var(--arkansas-white);
+}
+
+/* Styling for the "Show Less" button when toggled */
+.arkansas-providers-card-buttons button.active {
+  background-color: var(--arkansas-red);
+}
+
+/* Basic modal styling */
+.arkansas-providers-share-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Default width, changes with media queries */
+  max-width: 400px; /* Limits max width on larger screens */
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.arkansas-providers-share-modal h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Modal close button styling */
+.arkansas-providers-share-modal button.arkansas-providers-close-button {
+  background-color: #bf0a30; /* Arkansas red */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.arkansas-providers-close-button:hover {
+  background-color: #a30d25; /* Darker red for hover effect */
+  transform: translateY(-2px);
+}
+
+.arkansas-providers-close-button:focus {
+  outline: 2px solid #ffffff;
+  background-color: #a30d25;
+}
+
+.arkansas-providers-close-button:active {
+  transform: translateY(1px);
+}
+
+/* Filter Tags Section */
+.arkansas-providers-types {
+  grid-column: 1 / -1; /* Spans across all columns if shown */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f2f6fc;
+  border: 1px solid #ccd5e0;
+  border-radius: 10px;
+}
+
+/* Styling for each type tag */
+.arkansas-type-tag {
+  display: flex; /* Make the tag a flex container */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  padding: 8px 15px;
+  border: 1px solid #ccd5e0;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #002868;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0 auto;
+  text-align: center; /* Make sure the text itself is centered */
+}
+
+.arkansas-type-tag.selected {
+  background-color: var(--arkansas-blue);
+  color: white;
+}
+
+.arkansas-type-tag:hover {
+  background-color: var(--arkansas-red);
+  color: white;
+}
+
+/* Show/Hide Button and Clear Button Styling */
+.arkansas-show-hide-button,
+.arkansas-providers-clear-button {
+  background-color: var(--arkansas-blue);
+  color: white;
+  flex-direction: row;
+  font-weight: 600;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.arkansas-show-hide-button:hover,
+.arkansas-providers-clear-button:hover {
+  background-color: #003366;
+}
+
+.arkansas-providers-toggle-button,
+.arkansas-providers-clear-button {
+  background-color: var(--arkansas-blue);
+  color: var(--arkansas-white);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.arkansas-providers-toggle-button:hover,
+.arkansas-providers-clear-button:hover {
+  background-color: #003366;
+}
+
+/* Button Container */
+.arkansas-providers-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center; /* Space the buttons evenly within the container */
+  align-items: center;
+  width: 100%; /* Make the container span the full width of the parent */
+  margin-top: 20px; /* Add some spacing above the buttons */
+}
+
+/* Modal Overlay */
+.arkansas-providers-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--arkansas-modal-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden; /* Prevent background scrolling */
+}
+
+/* Modal Container */
+.arkansas-providers-modal-container {
+  background: var(--arkansas-white);
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90%; /* Restrict height to avoid overflow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1100;
+  overflow-y: auto; /* Add scroll for overflowing content */
+  position: relative; /* For positioning the close button */
+}
+
+/* Close Button */
+.arkansas-providers-modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--arkansas-red);
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.arkansas-providers-modal-close-button:hover {
+  transform: scale(1.1);
+  color: #a00d25;
+}
+
+/* Modal Title */
+.arkansas-providers-modal-title {
+  font-size: 1.8rem;
+  color: var(--arkansas-blue);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Modal Form */
+.arkansas-providers-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reduce gap for smaller screens */
+}
+
+/* Modal Form Labels */
+.arkansas-providers-modal-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  color: var(--arkansas-blue);
+}
+
+.arkansas-providers-modal-label input,
+.arkansas-providers-modal-label textarea {
+  padding: 8px; /* Reduce padding for better spacing */
+  border: 1px solid var(--arkansas-border-color);
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 1rem;
+  background-color: var(--arkansas-light-gray);
+  width: 100%; /* Ensure input fields stretch to full width */
+}
+
+/* Modal Buttons */
+.arkansas-providers-modal-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap for smaller screens */
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.arkansas-providers-modal-submit,
+.arkansas-providers-modal-cancel {
+  background-color: var(--arkansas-blue);
+  color: var(--arkansas-white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  flex: 1; /* Let buttons take full width if needed */
+  max-width: calc(50% - 10px); /* Prevent buttons from being too wide */
+}
+
+.arkansas-providers-modal-submit:hover,
+.arkansas-providers-modal-cancel:hover {
+  background-color: #003366;
+  transform: translateY(-2px);
+}
+
+.arkansas-providers-modal-cancel {
+  background-color: var(--arkansas-red);
+}
+
+.arkansas-providers-modal-cancel:hover {
+  background-color: #a00d25;
+}
+
+/* Generated JSON Output */
+.arkansas-providers-modal-json-output {
+  margin-top: 20px;
+  background: var(--arkansas-light-gray);
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+.arkansas-providers-modal-json-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--arkansas-blue);
+}
+
+.arkansas-providers-modal-json {
+  font-family: monospace;
+  color: var(--arkansas-blue);
+  white-space: pre-wrap;
+}
+
+.arkansas-add-provider-button,
+.arkansas-providers-clear-button {
+  background-color: var(--arkansas-blue);
+  color: var(--arkansas-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.arkansas-add-provider-button:hover {
+  background-color: #003366;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.arkansas-add-provider-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.arkansas-add-provider-button:focus {
+  outline: 2px solid var(--arkansas-red);
+}
+.arkansas-email-link {
+  color: var(--arkansas-blue); /* Use the Arkansas blue for consistency */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.arkansas-email-link:hover {
+  text-decoration: underline; /* Underline on hover for emphasis */
+}
+/* Copy Button in Modal */
+.arkansas-providers-modal-copy-button {
+  background-color: var(--arkansas-blue);
+  color: var(--arkansas-white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px; /* Adds spacing above the button */
+  display: inline-block; /* Ensures the button stays in line but as its own element */
+}
+
+.arkansas-providers-modal-copy-button:hover {
+  background-color: #003366; /* Darker shade for hover effect */
+  transform: translateY(-2px); /* Subtle lift when hovering */
+}
+
+.arkansas-providers-modal-copy-button:active {
+  transform: translateY(1px); /* Pressed effect */
+}
+
+.arkansas-providers-modal-copy-button:focus {
+  outline: 2px solid var(--arkansas-red); /* Highlight focus for accessibility */
+}
+/* Back to Form Button */
+.arkansas-providers-modal-back-button {
+  background-color: var(--arkansas-red);
+  color: var(--arkansas-white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px; /* Adds spacing above the button */
+  display: inline-block; /* Keeps the button in line but as its own element */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.arkansas-providers-modal-back-button:hover {
+  background-color: #a00d25; /* Darker red for hover effect */
+  transform: translateY(-2px); /* Gives a subtle lift on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Makes the shadow deeper when hovering */
+}
+
+.arkansas-providers-modal-back-button:active {
+  transform: translateY(
+    1px
+  ); /* Pressed effect for better interaction feedback */
+}
+
+.arkansas-providers-modal-back-button:focus {
+  outline: 2px solid var(--arkansas-blue); /* Blue focus outline for accessibility */
+}
+
+.hhsProviders-help-modal-open-button {
+  background: linear-gradient(135deg, var(--arkansas-red), var(--arkansas-blue));
+  color: var(--arkansas-white);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px; /* Rounded button for emphasis */
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hhsProviders-help-modal-open-button:hover {
+  transform: scale(1.05); /* Slight zoom-in effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hhsProviders-help-modal-open-button:focus {
+  outline: 2px solid var(--arkansas-white); /* Add a focus outline for accessibility */
+}
+
+.hhsProviders-help-modal-open-button:active {
+  transform: scale(0.95); /* Slight press-in effect */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .arkansas-providers-modal-container {
+    padding: 15px;
+    max-width: 90%; /* Increase max width for smaller screens */
+  }
+
+  .arkansas-providers-modal-title {
+    font-size: 1.5rem;
+  }
+
+  .arkansas-providers-modal-buttons {
+    gap: 5px; /* Reduce gap between buttons */
+  }
+
+  .arkansas-providers-modal-submit,
+  .arkansas-providers-modal-cancel {
+    max-width: 100%; /* Let buttons take full width */
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arkansas-providers-modal-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .arkansas-providers-modal-buttons {
+    flex-direction: column; /* Stack buttons vertically on very small screens */
+    gap: 10px;
+  }
+
+  .arkansas-providers-modal-submit,
+  .arkansas-providers-modal-cancel {
+    max-width: 100%;
+    width: 100%;
+    padding: 12px; /* Make buttons larger for easy tap targets */
+  }
+
+  .arkansas-providers-modal-form {
+    gap: 8px; /* Reduce gap for tight spaces */
+  }
+}
+
+/* ---------------------- */
+/* Responsive adjustments */
+/* ---------------------- */
+@media (max-width: 768px) {
+  /* Stack all filters vertically for smaller screens */
+  .arkansas-providers-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .arkansas-providers-buttons {
+    justify-content: center;
+  }
+
+  .arkansas-providers-autocomplete {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Card layout for smaller screens */
+  .arkansas-providers-card-list {
+    grid-template-columns: 1fr;
+  }
+
+  .arkansas-providers-card {
+    padding: 15px;
+  }
+
+  .arkansas-providers-card-buttons {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .arkansas-providers-card-buttons button {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  /* Hide title on small screens */
+  .arkansas-providers-title {
+    font-size: 1.3rem;
+  }
+  .arkansas-providers-share-modal {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust button size for very small screens */
+  .arkansas-providers-card-buttons button {
+    width: 90%;
+    padding: 10px;
+  }
+
+  /* Further reduce title size */
+  .arkansas-providers-title {
+    font-size: 1rem;
+  }
+  /* Further reduce input and button sizes for small screens */
+  .arkansas-providers-name-description-filter {
+    font-size: 0.9rem;
+  }
+  .arkansas-show-hide-button,
+  .arkansas-providers-clear-button,
+  .arkanssa-prviders-add-provider-button {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+
+  @media (max-width: 480px) {
+    .arkansas-providers-share-modal {
+      width: 90%;
+      padding: 15px;
+    }
+  }
+}

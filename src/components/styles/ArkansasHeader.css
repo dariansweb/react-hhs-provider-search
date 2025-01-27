@@ -1,0 +1,190 @@
+:root {
+    --arkansas-red: #BF0A30;
+    --arkansas-blue: #002868;
+    --arkansas-white: #FFFFFF;
+  }
+  
+  .arkansas-header-flag {
+    width: 75px; 
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+  /* Container for the header */
+  .arkansas-header-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    opacity: 0.9;
+    text-align: center;
+  }
+  
+  /* Top thin line with stars */
+  .arkansas-header-stars-line {
+    background-color: var(--arkansas-blue);
+    color: var(--arkansas-white);
+    font-size: 12px;
+    padding: 2px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .arkansas-header-star {
+    margin: 0 2px;
+  }
+  
+  /* Main header bar */
+  .arkansas-header-main {
+    background-color: var(--arkansas-red);
+    color: var(--arkansas-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    position: relative;
+  }
+  
+  .arkansas-header-title {
+    flex: 1;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .arkansas-header-title {
+      display: none; /* Hide the title text on smaller screens */
+    }
+  }
+  
+  /* Diamond menu buttons with hover spin effect */
+  .arkansas-header-diamond-menu {
+    background-color: var(--arkansas-blue); /* Arkansas blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+  }
+  
+  .arkansas-header-diamond-left {
+    position: absolute;
+    left: 20px;
+  }
+  
+  .arkansas-header-diamond-right {
+    position: absolute;
+    right: 20px;
+  }
+  
+  .arkansas-header-diamond-menu:hover {
+    background-color: var(--arkansas-red); /* Darker blue for hover */
+    transform: scale(1.05);  
+  }
+  
+  /* Sidebar base styles */
+  .arkansas-sidebar {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 50vw;
+    background-color: var(--arkansas-blue);
+    color: var(--arkansas-white);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    transform: translateX(-100%);
+    z-index: 2000;
+    overflow-y: auto;
+  }
+  
+  /* Scrollbar styling for better UX */
+  .arkansas-sidebar::-webkit-scrollbar {
+    width: 8px;
+  }
+  .arkansas-sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+  
+  /* Left sidebar specific styling */
+  .arkansas-sidebar-left {
+    left: 0;
+  }
+  
+  /* Right sidebar specific styling */
+  .arkansas-sidebar-right {
+    right: 0;
+    transform: translateX(100%);
+  }
+  
+  /* Sidebar open state */
+  .arkansas-sidebar.open {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Close button */
+  .close-button {
+    align-self: flex-end;
+    font-size: 1.5rem;
+    color: var(--arkansas-white);
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+  }
+  
+  .close-button:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Sidebar links styling */
+  .arkansas-sidebar a {
+    color: var(--arkansas-white);
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .arkansas-sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Bottom thin line with motto */
+  .arkansas-header-motto-line {
+    background-color: var(--arkansas-blue);
+    color: var(--arkansas-white);
+    font-size: 14px;
+    padding: 5px 0;
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 480px) {
+    .arkansas-header-main {
+      font-size: 18px;
+      padding: 16px 0;
+    }
+  
+    .arkansas-sidebar {
+      width: 75vw; /* Smaller width for smaller screens */
+    }
+  }
+  
